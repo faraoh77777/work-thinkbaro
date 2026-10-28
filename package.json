@@ -1,0 +1,38 @@
+{
+  "name": "thinkbaro",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "생각바로 — 떠오른 생각, 바로 글로.",
+  "scripts": {
+    "dev": "concurrently -k -n web,api \"vite\" \"tsx watch --env-file-if-exists=.env server/index.ts\"",
+    "dev:web": "vite",
+    "dev:api": "tsx --env-file-if-exists=.env server/index.ts",
+    "typecheck": "tsc --noEmit -p tsconfig.json && tsc --noEmit -p tsconfig.server.json",
+    "test": "vitest run",
+    "test:e2e": "tsx tests/e2e/run.ts",
+    "build": "tsc --noEmit -p tsconfig.json && vite build && tsc -p tsconfig.server.json",
+    "start": "node --env-file-if-exists=.env dist-server/server/index.js",
+    "test:report": "tsx tests/e2e/report.ts"
+  },
+  "dependencies": {
+    "express": "^5.3.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^26.6.5",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.2",
+    "concurrently": "^10.0.6",
+    "fake-indexeddb": "^6.2.6",
+    "jsdom": "^30.1.3",
+    "playwright-core": "^1.64.1",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.5",
+    "vitest": "^5.0.5"
+  }
+}
