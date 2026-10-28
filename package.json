@@ -6,6 +6,7 @@
   "description": "생각바로 — 떠오른 생각, 바로 글로.",
   "scripts": {
     "dev": "concurrently -k -n web,api \"vite\" \"tsx watch --env-file-if-exists=.env server/index.ts\"",
+    "dev:lan": "concurrently -k -n web,api \"vite --host 0.0.0.0\" \"tsx watch --env-file-if-exists=.env server/index.ts\"",
     "dev:web": "vite",
     "dev:api": "tsx --env-file-if-exists=.env server/index.ts",
     "typecheck": "tsc --noEmit -p tsconfig.json && tsc --noEmit -p tsconfig.server.json",
